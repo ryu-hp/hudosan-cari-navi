@@ -36,26 +36,77 @@
     --font-inter: 'Inter', sans-serif;
 }
 
-/* Reset & Base Styles
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: calc(28 / 800 * 100vw);
+}
+@media screen and (min-width:800px) {
+  html {
+    font-size: 16px;
+  }
+}
 body {
-    font-family: var(--font-main);
-    line-height: 1.6;
-    color: #333;
-    overflow-x: hidden;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #000000;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-weight: 500;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
+
+.lpContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 calc(20 / 800 * 100vw);
+}
+@media screen and (min-width:800px) {
+  .lpContainer {
+    padding: 0 20px;
+  }
+  
+}
+
+/* 改行レスポンシブ */
+.br-pc {
+  display: none;
+}
+@media screen and (min-width:800px) {
+  .br-sp {
+    display: none;
+  } 
+  .br-pc {
+    display: block;
+  }
+}
+
+.lp-wrapper {
+  max-width: 800px;
+  margin-right:auto;
+  margin-left:auto;
+  width: 100%;
+}
+
+/* reset */
+header.global,
+#c_head,
+#c_breadcrumbs,
+footer.global {
+  display: none !important;
+}
+#c_content section {
+  padding: 0;
+}
+
 
 /* Hero Section - Corporate
    ========================================================================== */

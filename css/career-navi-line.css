@@ -20,19 +20,71 @@
   margin: 0;
   padding: 0;
 }
-
+html {
+  font-size: calc(28 / 800 * 100vw);
+}
+@media screen and (min-width:800px) {
+  html {
+    font-size: 16px;
+  }
+}
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  color: #1a1a1a;
-  line-height: 1.6;
-  letter-spacing: 0.05em;
-  background: white;
+  color: #000000;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-weight: 500;
 }
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
+
+.lpContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 calc(20 / 800 * 100vw);
+}
+@media screen and (min-width:800px) {
+  .lpContainer {
+    padding: 0 20px;
+  }
+  
+}
+
+/* 改行レスポンシブ */
+.br-pc {
+  display: none;
+}
+@media screen and (min-width:800px) {
+  .br-sp {
+    display: none;
+  } 
+  .br-pc {
+    display: block;
+  }
+}
+
+.lp-wrapper {
+  max-width: 800px;
+  margin-right:auto;
+  margin-left:auto;
+  width: 100%;
+}
+
+/* reset */
+header.global,
+#c_head,
+#c_breadcrumbs,
+footer.global {
+  display: none !important;
+}
+#c_content section {
+  padding: 0;
+}
+
 
 /* ヒーローセクション（LINE版） */
 .hero-section-line {
@@ -130,6 +182,52 @@ img {
   width: 100%;
   max-width: 650px;
   height: auto;
+}
+
+/* 企業ロゴセクション */
+.logo-section {
+  width: 100%;
+  background: var(--color-white);
+}
+.logo-section__container {
+  padding: 20px 0;
+}
+.logo-section__contents {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.logo-section__contents > ul {
+  display: inline-block;
+  height: 60px;
+  list-style: none;
+  margin: 0;
+  white-space: nowrap;
+  animation: loop-slide 20s infinite linear;
+}
+.logo-section__contents > ul > li {
+  margin: 0 1em;
+}
+.logo-section__contents > ul > li,
+.logo-section__contents > ul > li > span {
+  display: inline-block;
+  height: 100%;
+}
+.logo-section__contents > ul > li > span,
+.logo-section__contents > ul > li > span > img {
+  height: 100%;
+}
+.logo-section__contents > ul > li > span > img {
+  display: block;
+  object-fit: contain;
+}
+@keyframes loop-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 /* 特徴セクション（LINE版） */
@@ -626,119 +724,271 @@ img {
 }
 
 /* レスポンシブ対応 */
-@media screen and (max-width: 767px) {
-  html {
-    font-size: calc(16 * 100vw / 750);
-  }
+@media screen and (min-width: 801px) {
   
-  .hero-section-line,
-  .logo-section-line,
-  .problem-section,
-  .solution-section,
-  .benefits-section,
-  .final-cta-section-line {
+  .hero-section,
+  .logo-section,
+  .concern-section,
+  .reasons-section,
+  .final-cta-section {
     max-width: 100%;
   }
-  
-  .hero-section-line__title {
-    flex-direction: column;
-    gap: 5px;
+  .hero-section {
+    height: 869px;
   }
-  
-  .hero-section-line__title-line {
-    font-size: 60px;
+  .hero-section__bg-image {
+    width: 1066px;
+    height: 800px;
   }
-  
-  .hero-section-line__title-text {
-    font-size: 36px;
+
+  .hero-section__person-image {
+    left: 201px;
+    width: 1040px;
   }
-  
-  .hero-section-line__main {
-    font-size: 48px;
+
+  .hero-section__content {
+    padding-top: 23px;
+    padding-left: 24px;
   }
-  
-  .features-line {
-    flex-direction: column;
-    gap: 20px;
+
+  .hero-section__logo {
+    width: 635px;
+    margin-bottom: 50px;
   }
-  
-  .feature-line-divider {
-    width: 100%;
-    height: 1px;
+
+  .hero-section__features {
+    margin-left: 2px;
+    width: 377px;
   }
-  
-  .cta-buttons-line {
-    flex-direction: column;
-    height: auto;
-    padding: 40px 20px;
-    gap: 60px;
+
+
+  /* CTAボタン */
+  .cta-buttons {
+    gap: 24.4px;
+    padding: 0 33.8px 16px;
   }
-  
-  .cta-button-line {
-    width: 100%;
-    max-width: 400px;
+
+  .cta-button {
+    width: 353.6px;
   }
+
   
-  .problem-section__title {
+  /* 企業ロゴセクション */
+  .logo-section__container {
+    padding: 20px 0;
+  }
+  .logo-section__contents > ul {
+    height: 105px;
+  }
+
+  /* 悩みセクション */
+  .concern-section {
+    padding: 56px 20px 60px !important;
+  }
+
+  .concern-section__bg-pattern {
+    top: -164px;
+    left: -87px;
+    width: 1005px;
+  }
+
+  .concern-section__bg-texture {
+    width: 1027px;
+  }
+  .concern-section__title {
+    font-size: 44px;
+    text-shadow: 1px 2px 24px rgba(0, 0, 0, 0.2);
+    margin-bottom: 24px;
+  }
+
+  .concern-section__description {
     font-size: 28px;
+    text-shadow: 1px 2px 24px rgba(0, 0, 0, 0.2);
+    max-width: 619px;
+    margin: 0 auto 43px;
   }
-  
-  .problem-section__description {
-    font-size: 18px;
+
+  .concern-bubbles {
+    width: 734px;
   }
-  
-  .problem-card {
-    flex-direction: column;
+
+  .concern-bubble.concern-bubble--1 {
+    width: 458px;
+  }
+  .concern-bubble.concern-bubble--2 {
+    width: 458px;
+    margin-top: -50px;
+  }
+  .concern-bubble.concern-bubble--3 {
+    width: 512px;
+    margin-top: -50px;
+    margin-left: 24px;
+  }
+
+  .solution-box {
     text-align: center;
+    margin-top: -70px;
+    padding-top: 100px;
+    padding-bottom: 38px;
   }
-  
-  .problem-card__icon {
-    margin: 0 auto;
+
+  .solution-box__bgimage {
+    bottom: -116px;
+    width: 1005px;
   }
-  
-  .solution-section__title {
+
+  .solution-box__contents {
+    gap: 17px;
+  }
+
+  .solution-box__brand {
+    font-size: 55.2px;
+  }
+
+  .solution-box__suffix {
+    font-size: 42.2px;
+  }
+
+  .solution-box__benefit {
+    padding: 8px 13px;
+    font-weight: 900;
+    font-size: 50.2px;
+    margin: 5px 0;
+  }
+
+  /* 3つの理由セクション */
+  .reasons-section {
+    width: 100%;
+    max-width: 800px;
+    padding: 50px 40px 60px;
+  }
+
+
+  .reasons-section__expert-image {
+    width: 306px;
+  }
+
+  .reasons-section__intro-text {
+    padding-top: 40px;
+  }
+
+  .reasons-section__intro-head {
+    margin-bottom: 4px;
+  }
+
+  .reasons-section__title {
+    font-weight: 700;
     font-size: 32px;
   }
-  
-  .solution-section__subtitle {
-    font-size: 22px;
+
+  .reasons-section__title--highlight {
+    text-decoration-thickness: 8px;
+    text-underline-offset: -2px;
   }
-  
-  .solution-step {
-    flex-direction: column;
-    text-align: center;
+
+  .reasons-section__number {
+    font-size: 49px;
+    margin-top: -12px;
   }
-  
-  .solution-step__number {
-    margin: 0 auto;
+
+  .reasons-section__number-large {
+    font-size: 67px;
   }
-  
-  .benefits-section__title {
+
+  .reasons-section__description {
     font-size: 28px;
   }
-  
-  .benefits-section__subtitle {
-    font-size: 22px;
+
+
+  .reason-card {
+    padding: 22px 26px 48px;
+    box-shadow: 0px -3px 8px rgba(0, 0, 0, 0.12);
+    gap: 19px;
   }
-  
-  .benefit-item {
-    flex-direction: column;
-    text-align: center;
+
+  .reason-card__label {
+    width: 109px;
+    margin-top: -48px;
+    margin-left: 9px;
   }
-  
-  .benefit-item__number {
-    margin: 0 auto;
-  }
-  
-  .final-cta-section-line__title {
-    font-size: 32px;
-  }
-  
-  .final-cta-section-line__title-line {
+
+  .reason-card__title {
     font-size: 36px;
+    margin-bottom: 1px;
+  }
+
+  .reason-card__description {
+    font-size: 28px;
+  }
+
+  /* 成功事例 */
+  .success-cases {
+    padding: 60px 0 !important;
+  }
+
+  .success-cases__container {
+    padding: 0 32px;
+  }
+
+  .success-cases__title {
+    font-size: 38px;
+    margin-bottom: 28.5px;
+  }
+
+  .success-case {
+    border: 2.5px solid #f1e69b;
+    border-radius: 10px;
+    padding: 22px 20px;
+    margin-bottom: 15px;
+    gap: 19px;
+  }
+
+  .success-case__icon {
+    width: 102px;
+  }
+
+  .success-case__title {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .success-case__description {
+    font-size: 28px;
+  }
+
+  /* 最終CTAセクション */
+  .final-cta-section {
+    padding: 20px 24px 92px !important;
+  }
+
+  .final-cta-section__bg-pattern {
+    top: -91px;
+    width: 1125px;
+  }
+
+  .final-cta-section__content {
+    padding: 29px 31px 90px;
+    border-radius: 10px;
+  }
+
+  .final-cta-section__title {
+    width: 682px;
+    margin-bottom: 23px;
+    margin-left: -10px;
+  }
+
+  .final-cta-section__description {
+    font-size: 30px !important;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+  }
+
+  .final-cta-section__images {
+    width: 452px;
+    bottom: 36px;
+  }
+
+  .cta-buttons--final {
+    padding: 0 36.5px 16.13px;
   }
   
-  .final-cta-section-line__description {
-    font-size: 20px;
-  }
 }
